@@ -56,7 +56,12 @@ class LoginView extends GetView<LoginController> {
                       ),
                     ),
                     onPressed: () {
-                      controller.loginRequest();
+                      bool _isValid = controller
+                          .loginFormKey.currentState!
+                          .validate();
+                      if (_isValid) {
+                        controller.loginRequest();
+                      }
                       // login function
                     }),
               ),
